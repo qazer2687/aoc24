@@ -1,0 +1,5 @@
+.direnv
+.vscode
+**/bin/
+**/obj/
+**/core
