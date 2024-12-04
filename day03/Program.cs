@@ -20,7 +20,7 @@ Console.WriteLine(Convert.ToString(arr1.Sum()));
 
 var arr2 = new List<int>();
 
-// track the state, starts as true
+// track the state, starting as true
 bool mul = true;
 
 string pattern2 = @"do\(\)|don't\(\)|mul\((\d+),(\d+)\)";
