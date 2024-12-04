@@ -1,6 +1,3 @@
-using System;
-using System.IO;
-
 // read input
 string[] lines = File.ReadAllLines("./input");
 int rows = lines.Length;
