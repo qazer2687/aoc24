@@ -36,7 +36,7 @@ foreach (int num in arr3) {
   result1 += num;
 }
 
-Console.WriteLine($"Part 1: {result1}");
+Console.WriteLine($"p1: {result1}");
 
 // create array of similarity scores
 foreach (int num1 in arr1) {
@@ -55,4 +55,4 @@ foreach (int num in arr4) {
   result2 += num;
 }
 
-Console.WriteLine($"Part 2: {result2}");
+Console.WriteLine($"p2: {result2}");
