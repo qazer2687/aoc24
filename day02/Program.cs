@@ -22,7 +22,7 @@ foreach (string line in File.ReadLines(filePath)) {
   }
   
   for (int removeIndex = 0; removeIndex < arr.Length; removeIndex++) {
-    // remove each element of the array and loop through
+    // remove each element of the array and loop through it
     int[] arr2 = arr.Where((_, index) => index != removeIndex).ToArray();
 
     // do the same checks again
