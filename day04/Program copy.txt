@@ -1,0 +1,78 @@
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+
+class Program {
+  static void Main(string[] args) {
+    string[] lines = File.ReadAllLines("./input");
+    char[,] grid = ParseGrid(lines);
+
+    string word = "XMAS";
+    int wordLength = word.Length;
+
+    int totalCount = FindWordOccurrences(grid, word);
+    Console.WriteLine($"Total occurrences of '{word}': {totalCount}");
+  }
+
+  static char[,] ParseGrid(string[] lines) {
+    int rows = lines.Length;
+    int cols = lines[0].Length;
+    char[,] grid = new char[rows, cols];
+
+    for (int i = 0; i < rows; i++) {
+      for (int j = 0; j < cols; j++) {
+        grid[i, j] = lines[i][j];
+      }
+    }
+
+    return grid;
+  }
+
+  static int FindWordOccurrences(char[,] grid, string word) {
+    int count = 0;
+    int rows = grid.GetLength(0);
+    int cols = grid.GetLength(1);
+    int wordLength = word.Length;
+
+    int[][] directions = new int[][]
+    {
+            new int[] { 0, 1 },   // Right
+            new int[] { 1, 0 },   // Down
+            new int[] { 1, 1 },   // Diagonal down-right
+            new int[] { 1, -1 },  // Diagonal down-left
+            new int[] { 0, -1 },  // Left (reverse)
+            new int[] { -1, 0 },  // Up (reverse)
+            new int[] { -1, -1 }, // Diagonal up-left (reverse)
+            new int[] { -1, 1 }   // Diagonal up-right (reverse)
+    };
+
+    for (int i = 0; i < rows; i++) {
+      for (int j = 0; j < cols; j++) {
+        foreach (var dir in directions) {
+          if (IsWordPresent(grid, word, i, j, dir[0], dir[1])) {
+            count++;
+          }
+        }
+      }
+    }
+
+    return count;
+  }
+
+  static bool IsWordPresent(char[,] grid, string word, int row, int col, int rowDir, int colDir) {
+    int rows = grid.GetLength(0);
+    int cols = grid.GetLength(1);
+    int wordLength = word.Length;
+
+    for (int k = 0; k < wordLength; k++) {
+      int newRow = row + k * rowDir;
+      int newCol = col + k * colDir;
+
+      if (newRow < 0 || newRow >= rows || newCol < 0 || newCol >= cols || grid[newRow, newCol] != word[k]) {
+        return false;
+      }
+    }
+
+    return true;
+  }
+}

@@ -1,0 +1,60 @@
+﻿using System;
+using System.IO;
+
+// read input
+string[] lines = File.ReadAllLines("./input");
+int rows = lines.Length;
+int cols = lines[0].Length;
+
+// create 2d grid
+char[,] grid = new char[rows, cols];
+for (int i = 0; i < rows; i++) {
+  for (int j = 0; j < cols; j++) {
+    grid[i, j] = lines[i][j];
+  }
+}
+
+string word = "XMAS";
+int wordLength = word.Length;
+int count = 0;
+
+// all search directions
+int[][] directions = new int[][] {
+  new int[] { 0, 1 },
+  new int[] { 1, 0 },
+  new int[] { 1, 1 },
+  new int[] { 1, -1 },
+  new int[] { 0, -1 },
+  new int[] { -1, 0 },
+  new int[] { -1, -1 },
+  new int[] { -1, 1 } 
+};
+
+// search each grid cell in all directions
+for (int i = 0; i < rows; i++) {
+  for (int j = 0; j < cols; j++) {
+    foreach (var dir in directions) {
+      bool isMatch = true;
+
+      // check each character in that direction
+      for (int k = 0; k < wordLength; k++) {
+        int newRow = i + k * dir[0];
+        int newCol = j + k * dir[1];
+
+        if (newRow < 0 || newRow >= rows || newCol < 0 || newCol >= cols || grid[newRow, newCol] != word[k]) {
+          isMatch = false;
+          break;
+        }
+      }
+
+      // increment if all chars of xmas found
+      if (isMatch) {
+        count++;
+      }
+    }
+  }
+}
+
+// part 1 answer
+Console.WriteLine($"{word}: {count}");
+
