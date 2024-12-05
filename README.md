@@ -1,6 +1,6 @@
 ### aoc24
 
-My solutions to [Advent Of Code 2024](https://adventofcode.com/2024) in C#. 🎄✨
+My solutions to [Advent Of Code 2024](https://adventofcode.com/2024) in C# & Python. 🎄✨
 
 ### Progress
 
@@ -10,5 +10,5 @@ My solutions to [Advent Of Code 2024](https://adventofcode.com/2024) in C#. 🎄
 | 02 | 🌟 | 07 |    | 12 |    | 17 |    | 22 |    |
 | 03 | 🌟  | 08 |    | 13 |    | 18 |    | 23 |    |
 | 04 |  🌟  | 09 |    | 14 |    | 19 |    | 24 |    |
-| 05 |    | 10 |    | 15 |    | 20 |    | 25 |    |
+| 05 |  ⭐  | 10 |    | 15 |    | 20 |    | 25 |    |
 
