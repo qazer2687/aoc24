@@ -44,4 +44,3 @@ file_path = './input'
 
 # part 1
 print(calculate_sum_of_middle_pages(file_path))
-
